@@ -32,9 +32,11 @@ async def about(message: Message):
 # Команда кнопки "Тренінги"
 @router.message(F.text == 'Тренінги')
 async def trening(message: Message):
+    
     tren=await get_tren('name')
     about=await get_tren('about')
     photo_tren=await get_tren('Photo')
+    
     await message.answer_photo(photo=photo_tren[0],
 caption=f'''<B>{tren[0]}</B>\n
 {about[0]}''', 
